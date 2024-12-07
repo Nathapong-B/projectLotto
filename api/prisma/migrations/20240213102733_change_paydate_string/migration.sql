@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "BillSale" ALTER COLUMN "payDate" SET DATA TYPE TEXT;

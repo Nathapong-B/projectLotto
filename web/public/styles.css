@@ -1,0 +1,13 @@
+* {
+    font-family: "kanit", sans-serif;
+  }
+  
+  body {
+    background-image: linear-gradient(to bottom, #2c262a, #2e282e, #2f2a32, #302c37, #2f2f3b, #3d3e4a, #4b4e5a, #5a5e6a, #7f818a, #a5a5ac, #cccccf, #f4f4f4);
+    /* background-image: linear-gradient(to bottom, #626458, #83867a, #a6aa9f, #cbcfc5, #f1f6ec); */
+    /* background-color: blue; */
+    background-attachment: fixed;
+    padding: 0;
+    /* height: 100dvh; */
+    /* z-index: -1; */
+  }

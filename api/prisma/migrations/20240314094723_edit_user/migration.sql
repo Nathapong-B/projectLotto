@@ -1,0 +1,5 @@
+-- AlterTable
+ALTER TABLE "User" ALTER COLUMN "name" SET DEFAULT '-',
+ALTER COLUMN "level" SET DEFAULT 'user',
+ALTER COLUMN "phone" SET DEFAULT '-',
+ALTER COLUMN "address" SET DEFAULT '-';

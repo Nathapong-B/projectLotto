@@ -1,0 +1,127 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int     @id @default(autoincrement())
+  name      String? @default("-")
+  user      String  @unique
+  pwd       String
+  level     String? @default("user")
+  email     String? @unique
+  phone     String? @default("-")
+  address   String? @default("-")
+  ref_token String?
+}
+
+model Company {
+  id      Int    @id @default(autoincrement())
+  c_name  String
+  phone   String
+  address String
+}
+
+model Lotto {
+  id             Int              @id @default(autoincrement())
+  l_number       String
+  roundDate      String //งวดวันที่
+  bookNumber     Int
+  cost           Int
+  sale           Int
+  stock          Int              @default(0)
+  all_stock      Int              @default(0)
+  isCheckReward  String           @default("false")
+  BillSaleDetail BillSaleDetail[]
+  LottoAwards    LottoAwards[]
+  StockAwards    StockAwards[]
+}
+
+model BillSale {
+  id              Int              @id @default(autoincrement())
+  payDate         DateTime?
+  createdDate     DateTime
+  customerName    String
+  customerPhone   String
+  customerAddress String?
+  BillSaleDetail  BillSaleDetail[]
+  confirmState    String           @default("false")
+  lottoAwards     LottoAwards[]
+  FileUpload      SlipUpload[]
+}
+
+model BillSaleDetail {
+  id          Int           @id @default(autoincrement())
+  billSaleId  Int
+  billSale    BillSale      @relation(fields: [billSaleId], references: [id])
+  lottoId     Int
+  lotto       Lotto         @relation(fields: [lottoId], references: [id])
+  sale        Int
+  Qty         Int           @default(0)
+  lottoAwards LottoAwards[]
+}
+
+model RewardDetail {
+  id          Int           @id @default(autoincrement())
+  level       String
+  number      String
+  reward      Int
+  date        String
+  LottoAwards LottoAwards[]
+  StockAwards StockAwards[]
+}
+
+model LottoAwards {
+  id               Int            @id @default(autoincrement())
+  rewardId         Int
+  reward           RewardDetail   @relation(fields: [rewardId], references: [id])
+  lottoId          Int
+  lotto            Lotto          @relation(fields: [lottoId], references: [id])
+  billSaleId       Int
+  billSale         BillSale       @relation(fields: [billSaleId], references: [id])
+  billSaleDetailId Int
+  billSaleDetail   BillSaleDetail @relation(fields: [billSaleDetailId], references: [id])
+}
+
+model StockAwards {
+  id       Int          @id @default(autoincrement())
+  rewardId Int
+  reward   RewardDetail @relation(fields: [rewardId], references: [id])
+  lottoId  Int
+  lotto    Lotto        @relation(fields: [lottoId], references: [id])
+}
+
+model SlipUpload {
+  id          Int      @id @default(autoincrement())
+  createdDate DateTime @default(now())
+  name        String
+  src         String
+  type        String?
+  size        Int?     @default(0)
+  billSaleId  Int
+  billSale    BillSale @relation(fields: [billSaleId], references: [id])
+}
+
+model Banner {
+  id          Int      @id @default(autoincrement())
+  createdDate DateTime @default(now())
+  name        String
+  src         String
+  type        String?
+  size        Int?     @default(0)
+}
+
+model PositionBanner {
+  id         Int       @id @default(autoincrement())
+  page       String?
+  position   String?
+  bannerPath String?
+  expDate    DateTime?
+}

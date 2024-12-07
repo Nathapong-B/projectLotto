@@ -1,0 +1,110 @@
+/* * {
+    box-sizing: border-box;
+} */
+
+a {
+    text-decoration: none;
+}
+
+.contain {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    overflow: hidden;
+}
+
+.sidebar {
+    background-color: rgba(48, 48, 48, 1);
+    color: rgb(177, 175, 175);
+    width: 18em;
+    /* min-width: 15em; */
+    padding: 1em;
+    height: 100vh;
+    position: relative;
+    transition: all 0.3s;
+    /* position: fixed; */
+    overflow: hidden;
+}
+
+.sidebar-narrow {
+    width: 70px;
+    padding: 1em 0;
+    transition: all 0.3s;
+    /* transition: all 0.3s; */
+}
+
+.xpand-narrow {
+    color: #6c757d;
+    display: inline-block;
+    /* width: 20px; */
+    /* height: 20px; */
+    transition: all 1s cubic-bezier(0.0, 0.5, 1.0, 1.0);
+    transform-style: preserve-3d;
+    transform: rotateY(0deg);
+}
+
+.xpand-narrow:hover {
+    color: #f8f9fa;
+}
+
+.xpand-narrow-flip {
+    /* margin-right: 1em; */
+    transform: rotateY(180deg);
+}
+
+.text-bar {
+    width: 10em;
+    height: 4em;
+    margin: auto;
+    padding: 0;
+    overflow: hidden;
+    /* background-color: red; */
+
+    & h3 {
+        text-align: center;
+        font-weight: bold;
+    }
+}
+
+.user {
+    margin: 1em 0;
+    font-weight: bold;
+    width: 10em;
+    height: 1.5em;
+    overflow: hidden;
+    /* background-color: blue; */
+}
+
+.sidebar a {
+    color: rgb(177, 175, 175);
+    text-decoration: none;
+}
+
+.menu span {
+    display: block;
+    width: 15em;
+    height: 2.5em;
+    margin: 0.5em 0.5em;
+    padding: 0.5em 1em;
+    overflow: hidden;
+}
+
+.menu span:hover {
+    background-color: rgb(86, 86, 86);
+}
+
+.bg-hover {
+    background-color: rgb(100, 100, 100);
+}
+
+.content {
+    width: 100vw;
+    padding: 2em;
+    overflow: auto;
+}
+
+/* -- balancesheet -- */
+.tr-cursor {
+    cursor: pointer;
+}

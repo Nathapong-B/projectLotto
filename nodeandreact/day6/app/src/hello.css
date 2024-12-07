@@ -1,0 +1,24 @@
+body{
+    background-color:#e4e2e2c2;
+}
+.container{
+    background-color: aqua;
+    margin: 0 auto;
+    padding: 0 auto;
+    width: 500px;
+    text-align: center;
+}
+h1{
+    margin: 0 auto;
+    background-color: pink;
+}
+.two{
+    background-color: blue;
+    width: 200px;
+    margin: 0 auto;
+}
+span{
+    background-color:rgb(146, 146, 182);
+    margin: 0px auto;
+}
+
