@@ -12,7 +12,7 @@ function Billsale() {
 
     useEffect(() => {
         fetchData();
-    }, [])
+    }, []);
 
     const fetchData = async () => {
         try {
